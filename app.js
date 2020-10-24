@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const Nexmo = require("nexmo");
 const socketio = require("socket.io");
-
+require("dotenv").config();
 //Init APP
 const app = express();
 
@@ -57,4 +57,6 @@ app.post("/", (req, res) => {
 const port = 3000;
 
 //App Start
-const server = app.listen(port, () => console.log(`app Start with :: ${port}`));
+const server = app.listen(process.env.PORT, () =>
+  console.log(`app Start with :: ${port}`)
+);
